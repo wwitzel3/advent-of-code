@@ -1,6 +1,4 @@
-from typing import DefaultDict
 from helper import run
-from collections import defaultdict
 
 def move(input):
     pos = [int(s) for s in input[0].split(',')]

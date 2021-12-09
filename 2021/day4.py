@@ -1,18 +1,21 @@
 from helper import run
 
+
 def winning_checks():
     winning = []
     for n in range(5):
-        winning.append([(n,0), (n,1), (n,2), (n,3), (n,4)])
-        winning.append([(0,n), (1,n), (2, n), (3,n), (4,n)])
+        winning.append([(n, 0), (n, 1), (n, 2), (n, 3), (n, 4)])
+        winning.append([(0, n), (1, n), (2, n), (3, n), (4, n)])
     return winning
 
+
 CHECKS = winning_checks()
+
 
 def check(card):
     for check in CHECKS:
         win = True
-        for x,y in check:
+        for x, y in check:
             if card[x][y] != 'x':
                 win = False
                 break
@@ -20,7 +23,7 @@ def check(card):
             return True
     return False
 
-    
+
 def setup(input):
     drawing = input[0].split(',')
     print(drawing)
@@ -36,7 +39,7 @@ def setup(input):
     if len(current_board) > 0:
         cards.append(current_board)
 
-    winners = {str(k):0 for k in range(len(cards))}
+    winners = {str(k): 0 for k in range(len(cards))}
 
     for n in drawing:
         for i, card in enumerate(cards):
@@ -58,7 +61,8 @@ def setup(input):
 
 
 def main():
-   print(run(setup, 'day4.puzzle.input'))
+    print(run(setup, 'day4.puzzle.input'))
+
 
 if __name__ == '__main__':
     main()

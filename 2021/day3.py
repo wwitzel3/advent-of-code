@@ -13,6 +13,7 @@ def common(input):
             common[p] = val
     return common
 
+
 def lifesupport(input):
     def process(in1, most_common, step=0):
         if len(in1) == 1:
@@ -39,7 +40,8 @@ def lifesupport(input):
     print("co2", co2)
 
     return oxy * co2
-  
+
+
 def diag(input):
     nums = common(input)
 
@@ -57,7 +59,8 @@ def diag(input):
 
 
 def main():
-   print(run(diag, 'day3.puzzle.input'))
+    print(run(diag, 'day3.puzzle.input'))
+
 
 if __name__ == '__main__':
     main()

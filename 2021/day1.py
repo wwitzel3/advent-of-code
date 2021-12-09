@@ -1,5 +1,6 @@
 inputs = ""
 
+
 def main():
     increased = 0
     prev = None
@@ -16,6 +17,7 @@ def main():
         prev = input
     print(increased)
 
+
 def generate(pings, step):
     first = 0 + step
     second = 1 + step
@@ -26,6 +28,7 @@ def generate(pings, step):
     v3 = int(pings[third])
 
     return v1 + v2 + v3
+
 
 if __name__ == '__main__':
     main()

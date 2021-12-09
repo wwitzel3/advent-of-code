@@ -14,9 +14,9 @@ counts = {
 
 
 def simulate(input):
-    number = input[0].replace(',','')
+    number = input[0].replace(',', '')
 
-    ## establish baseline
+    # establish baseline
     for f in number:
         counts[f] += 1
 
@@ -27,7 +27,7 @@ def simulate(input):
 
 
 def advance(counts):
-    ## advance
+    # advance
     new_fish, reset_fish = counts['0'], counts['0']
 
     counts['0'] = counts['1']
@@ -40,8 +40,10 @@ def advance(counts):
     counts['7'] = counts['8']
     counts['8'] = new_fish
 
+
 def main():
-   print(run(simulate, 'day6.puzzle.input'))
+    print(run(simulate, 'day6.puzzle.input'))
+
 
 if __name__ == '__main__':
     main()

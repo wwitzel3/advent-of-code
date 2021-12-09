@@ -4,11 +4,12 @@ diagram = []
 numbers = []
 count = 0
 
+
 def update_diagram(left, right, diagram):
     global count
 
-    x1,y1 = left
-    x2,y2 = right
+    x1, y1 = left
+    x2, y2 = right
 
     horiz = x1 == x2
     vert = y1 == y2
@@ -45,7 +46,7 @@ def update_diagram(left, right, diagram):
     if y1 < y2:
         y_range = range(y1, y2+1)
 
-    for x,y in zip(x_range, y_range):
+    for x, y in zip(x_range, y_range):
         if diagram[y][x] == '.':
             diagram[y][x] = 1
         else:
@@ -82,8 +83,10 @@ def setup(input):
 
     return count
 
+
 def main():
-   print(run(setup, 'day5.puzzle.input'))
+    print(run(setup, 'day5.puzzle.input'))
+
 
 if __name__ == '__main__':
     main()

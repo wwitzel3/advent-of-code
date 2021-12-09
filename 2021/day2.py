@@ -1,5 +1,6 @@
 from helper import run
 
+
 def dive(input):
     horz = 0
     depth = 0
@@ -18,8 +19,10 @@ def dive(input):
 
     return horz * depth
 
+
 def main():
-   print(run(dive, 'day2.puzzle.input'))
+    print(run(dive, 'day2.puzzle.input'))
+
 
 if __name__ == '__main__':
     main()

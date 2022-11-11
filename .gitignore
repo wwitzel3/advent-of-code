@@ -1,2 +1,8 @@
 *.input
 __pycache__
+.log
+.bak
+.vscode
+.venv
+zig-cache
+*.out

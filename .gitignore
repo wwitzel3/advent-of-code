@@ -1,7 +1,7 @@
 *.input
 __pycache__
-.log
-.bak
+*.log
+*.bak
 .vscode
 .venv
 zig-cache

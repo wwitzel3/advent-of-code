@@ -1,3 +1,4 @@
+target
 *.input
 __pycache__
 *.log

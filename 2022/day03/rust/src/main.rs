@@ -1,4 +1,4 @@
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, HashSet};
 
 #[derive(Copy, Clone, Debug)]
 enum Priority {
@@ -128,17 +128,9 @@ fn main() {
     let mut val: Vec<u64> = Vec::new();
     let sz: usize = 3;
     for chunk in lines.chunks(sz) {
-        let mut first: Vec<char> = chunk[0].chars().collect();
-        first.sort();
-        first.dedup();
-
-        let mut second: Vec<char> = chunk[1].chars().collect();
-        second.sort();
-        second.dedup();
-
-        let mut third: Vec<char> = chunk[2].chars().collect();
-        third.sort();
-        third.dedup();
+        let first: HashSet<char> = chunk[0].chars().collect();
+        let second: HashSet<char> = chunk[1].chars().collect();
+        let third: HashSet<char> = chunk[2].chars().collect();
 
         let mut dupes: BTreeMap<char, u8> = BTreeMap::new();
 

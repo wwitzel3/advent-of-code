@@ -138,6 +138,7 @@ fn main() {
             if third.contains(c) {
                 let priority = Priority::from(*c).unwrap();
                 total += priority.val();
+                break;
             }
         }
     }

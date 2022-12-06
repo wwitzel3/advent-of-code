@@ -123,36 +123,23 @@ impl Priority {
 fn main() {
     let input = std::fs::read_to_string("puzzle.input")
         .expect("should have been ablet to read puzzle.input");
-
     let lines: Vec<&str> = input.lines().collect();
-    let mut val: Vec<u64> = Vec::new();
+
+    let mut total = 0;
     let sz: usize = 3;
+
     for chunk in lines.chunks(sz) {
         let first: HashSet<char> = chunk[0].chars().collect();
         let second: HashSet<char> = chunk[1].chars().collect();
         let third: HashSet<char> = chunk[2].chars().collect();
 
-        let mut dupes: BTreeMap<char, u8> = BTreeMap::new();
-
-        for c in first {
-            dupes.insert(c, 1);
-        }
-
-        for c in second {
-            dupes.entry(c).and_modify(|v| *v += 1);
-        }
-
-        for c in third {
-            dupes.entry(c).and_modify(|v| *v += 1);
-        }
-
-        let matches = dupes.iter().filter(|bt| *bt.1 >= 3);
-        for (m, _) in matches {
-            let priority = Priority::from(*m).unwrap();
-            let i = priority.val();
-            val.push(i)
+        let i: HashSet<_> = first.intersection(&second).collect();
+        for c in i {
+            if third.contains(c) {
+                let priority = Priority::from(*c).unwrap();
+                total += priority.val();
+            }
         }
     }
-    let s: u64 = val.iter().sum();
-    println!("{}", s);
+    println!("{}", total);
 }

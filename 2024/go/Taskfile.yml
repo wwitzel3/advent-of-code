@@ -2,9 +2,13 @@ version: "3"
 
 tasks:
   build:
+    vars:
+      DAYS:
+        sh: find days -name 'day*.go'
     cmds:
       - go build -v -o build/main main.go
-      - go build -buildmode=plugin -o build/days/day1.so days/day1.go
+      - for: { var: DAYS }
+        cmd: go build -buildmode=plugin -o build/{{.ITEM}}.so {{.ITEM}}
 
   run:
     cmds:

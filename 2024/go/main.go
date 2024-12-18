@@ -34,18 +34,18 @@ func main() {
 	}
 
 	// Append .so to first argument
-	dayModule := "/days/" + os.Args[1] + ".so"
+	dayModule := "/days/" + os.Args[1] + ".go.so"
 	modulePath := exPath + dayModule
 
 	plugin, err := plugin.Open(modulePath)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("open error")
 		return
 	}
 
 	symSolver, err := plugin.Lookup("Solver")
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("lookup error")
 		return
 	}
 
@@ -55,5 +55,5 @@ func main() {
 		return
 	}
 
-	fmt.Println(solver.Solve(os.Args[2]))
+	solver.Solve(os.Args[2])
 }

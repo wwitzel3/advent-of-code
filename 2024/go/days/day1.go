@@ -1,14 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-type solver struct {
+	"wwitzel3.id/aoc/solver"
+)
+
+type day1 struct {
 }
 
-func (s *solver) Solve(input string) string {
-	fmt.Println("Solving day01", input)
-	return "day01"
+func (d *day1) Solve(input string) string {
+	scanner := solver.Scanner(input)
+	for scanner.Scan() {
+		line := scanner.Text()
+		fmt.Println(line)
+	}
+	return "day1"
 }
 
 // Exported
-var Solver solver
+var Solver day1
